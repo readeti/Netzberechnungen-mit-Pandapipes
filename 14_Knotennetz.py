@@ -74,7 +74,7 @@ pp.pipeflow(net)
 net.res_junction
 print(net.res_junction)
 
-# to show junction table, see function below
+#show junction table
 print(net.junction)  
 #print(net.source)
 print(net.res_pipe)
@@ -83,7 +83,7 @@ print(net.res_pipe)
 #print(net.res_sink)
 
 
-#to show full table
+# show full table
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 #plotting
