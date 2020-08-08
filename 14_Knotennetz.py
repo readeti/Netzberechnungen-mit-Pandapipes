@@ -1,12 +1,15 @@
 import pandas as pd
 import pandapipes as pp
 
+# create an empty network
+net = pp.create_empty_network(fluid="lgas")  
+net1 = pp.create_empty_network(fluid="hgas")
 
-net = pp.create_empty_network(fluid="lgas")  # create an empty network
-#net1 = pp.create_empty_network(fluid="lgas")
-
+#creating fluids
 #prop1 = pp.create_constant_property(net, "density", 1000)
 #prop2 = pp.create_linear_property(net, "compressibility", -0.01, 1)
+
+
 
 # fill it with elements
 
@@ -26,7 +29,8 @@ junction13 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junc
 junction14 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 14", geodata=(4, 6))
 
 ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.03, t_k=273.15, name="Grid Connection")
-#ext_grid = pp.create_ext_grid(net, junction=junction8, p_bar=100, t_k=273.15, name="Grid Connection")
+#ein zweites knoten mit dem selben gas einspeisen.
+ext_grid = pp.create_ext_grid(net, junction=junction8, p_bar=100, t_k=273.15, name="Grid Connection")
 
 # create pipes
 pipe1 = pp.create_pipe_from_parameters(net, from_junction=junction1, to_junction=junction2, length_km=0.026, diameter_m=0.30, k_mm=1, name="Pipe 1")
@@ -71,7 +75,7 @@ net.res_junction
 print(net.res_junction)
 
 # to show junction table, see function below
-print(net.junction)  # there is a problem in here, it requires the pressure at all junctions!!!
+print(net.junction)  
 #print(net.source)
 print(net.res_pipe)
 #print(net.sink)
@@ -79,9 +83,9 @@ print(net.res_pipe)
 #print(net.res_sink)
 
 
-
 #to show full table
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
+#plotting
 import pandapipes.plotting as plot
 plot.simple_plot(net, plot_grid=True, plot_sinks=True, plot_sources=True, grid_size=2.0, sink_size=1.0, source_size=1.0)
