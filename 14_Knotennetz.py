@@ -5,7 +5,7 @@ import pandapipes as pp
 net = pp.create_empty_network(fluid="lgas")  
 net1 = pp.create_empty_network(fluid="hgas")
 
-#creating fluids
+#creating fluids (buggy!!)
 #prop1 = pp.create_constant_property(net, "density", 1000)
 #prop2 = pp.create_linear_property(net, "compressibility", -0.01, 1)
 
