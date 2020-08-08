@@ -21,11 +21,9 @@ plt.xticks(np.arange(15), labels, rotation=45)
 ax = plt.subplot(111)
 plt.autoscale(tight=True)
 
-#tick_label =  ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'] 
-#plt.bar(left, height, tick_label = tick_label, 
-#       width = 0.8, color = ['red'])
-#plt.xlabel('Knoten')
-#plt.ylabel('Druck/Pa')
+
+plt.xlabel('Knoten')
+plt.ylabel('Druck/bar')
 #plt.tilte('Druckwerte')
 ax.legend( (rects1[0], rects2[0], rects3[0]), ('k', 'l', 'm') )
 plt.show()
