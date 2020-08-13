@@ -23,5 +23,5 @@ rects3 = ax.bar(ind+0.2, m, width=0.2, color='r', align='center')
 
 
 
-ax.legend( (rects1[0], rects2[0], rects3[0]), ('k', 'l', 'm') )
+ax.legend( (rects1[0], rects2[0], rects3[0]), ('vdot_m^3/h', 'Volumenstrom(Cerbe)', 'mdot_to_m^3/h ') )
 plt.show()

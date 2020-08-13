@@ -2,14 +2,16 @@ import pandas as pd
 import pandapipes as pp
 
 # create an empty network
+
 net = pp.create_empty_network(fluid="lgas")  
+
 
 #sieht nicht wie die richtige lösung aus,um das netz mit einem zweiten fluid einzuspeisen.
 #net1 = pp.create_empty_network(fluid="hgas")
 
 #creating fluids (buggy!!)
-#prop1 = pp.create_constant_property(net, "density", 1000)
-#prop2 = pp.create_linear_property(net, "compressibility", -0.01, 1)
+#prop1 = pp.create_constant_property(net, "density", 1000, overwrite = True)
+#prop2 = pp.create_linear_property(net, "compressibility", -0.01, 1, overwrite = True)
 
 
 
@@ -30,9 +32,9 @@ junction12 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junc
 junction13 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 13", geodata=(8, 4))
 junction14 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 14", geodata=(4, 6))
 
-ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.03, t_k=273.15, name="Grid Connection")
+ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.30, t_k=273.15, name="Grid Connection")
 #ein zweites knoten mit dem selben gas einspeisen.
-ext_grid = pp.create_ext_grid(net, junction=junction8, p_bar=100, t_k=273.15, name="Grid Connection")
+#ext_grid = pp.create_ext_grid(net, junction=junction8, p_bar=100, t_k=273.15, name="Grid Connection")
 
 # create pipes
 pipe1 = pp.create_pipe_from_parameters(net, from_junction=junction1, to_junction=junction2, length_km=0.026, diameter_m=0.30, k_mm=1, name="Pipe 1")

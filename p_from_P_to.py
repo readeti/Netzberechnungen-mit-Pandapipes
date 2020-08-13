@@ -27,5 +27,6 @@ plt.autoscale(tight=True)
 plt.xlabel('Knoten')
 plt.ylabel('Druck/bar')
 
-ax.legend( (rects1[0], rects2[0], rects3[0]), ('k', 'l', 'm') )
+ax.legend( (rects1[0], rects2[0], rects3[0]), ('p_from_bar', 'p_to_bar', 'Differenz'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+
 plt.show()
