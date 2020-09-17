@@ -1,38 +1,54 @@
 import pandas as pd
 import pandapipes as pp
+#import colebrook
+#def create_constant_fluid(name="Methane",fluid_type="gas", **kwargs):
+ #   create_constant_fluid(**kwargs)
+  #  create_constant_fluid(property_name ="density", value = 0.675, overwrite=True, warn_on_duplicates=True)
 
 # create an empty network
+net = pp.create_empty_network(fluid="lgas")
 
-net = pp.create_empty_network(fluid="lgas")  
+     
+
+#class Fluid(name = "methane",fluid_type = "gas", **kwargs): ??
+#fluid.add_property("methane_density", pp.FluidPropertyConstant(0.657), overwrite=True, warn_on_duplicates=True) ??
 
 
-#sieht nicht wie die richtige lösung aus,um das netz mit einem zweiten fluid einzuspeisen.
-#net1 = pp.create_empty_network(fluid="hgas")
 
-#creating fluids (buggy!!)
+
 #prop1 = pp.create_constant_property(net, "density", 1000, overwrite = True)
 #prop2 = pp.create_linear_property(net, "compressibility", -0.01, 1, overwrite = True)
+
+#already existing fluid
+#pp.create_fluid_from_lib(net, name="water")
+
+#fluid from parameters (not working)
+#pp.create_constant_fluid(name="Methane", fluid_type="gas")
+#pp.create_constant_property(net, "density", 0.657 , overwrite=True, warn_on_duplicates=True)
+#pp.init_options(net, "lambda")
+#pp.set_user_pf_options(net, reset=False)
+
+
 
 
 
 # fill it with elements
+junction1 = pp.create_junction(net, pn_bar=1.013, tfluid_k=293.15, name="Junction 1", geodata=(0, 0))
+junction2 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 2", geodata=(2, 0))
+junction3 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 3", geodata=(4, 0))
+junction4 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 4", geodata=(6, 0))
+junction5 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 5", geodata=(8, 0))
+junction6 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 6", geodata=(10, 0))
+junction7 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 7", geodata=(8, 2))
+junction8 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 8", geodata=(6, 2))
+junction9 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 9", geodata=(4, 2))
+junction10 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 10", geodata=(2, 2))
+junction11 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 11", geodata=(2, 4))
+junction12 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 12", geodata=(4, 4))
+junction13 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 13", geodata=(8, 4))
+junction14 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 293.15, name="Junction 14", geodata=(4, 6))
 
-junction1 = pp.create_junction(net, pn_bar=1.013, tfluid_k=273.15, name="Junction 1", geodata=(0, 0))
-junction2 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 2", geodata=(2, 0))
-junction3 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 3", geodata=(4, 0))
-junction4 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 4", geodata=(6, 0))
-junction5 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 5", geodata=(8, 0))
-junction6 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 6", geodata=(10, 0))
-junction7 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 7", geodata=(8, 2))
-junction8 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 8", geodata=(6, 2))
-junction9 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 9", geodata=(4, 2))
-junction10 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 10", geodata=(2, 2))
-junction11 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 11", geodata=(2, 4))
-junction12 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 12", geodata=(4, 4))
-junction13 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 13", geodata=(8, 4))
-junction14 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 14", geodata=(4, 6))
-
-ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.03, t_k=273.15, name="Grid Connection")
+ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.03, t_k=293.15, name="Grid Connection")
 #ein zweites knoten mit dem selben gas einspeisen.
 #ext_grid = pp.create_ext_grid(net, junction=junction8, p_bar=100, t_k=273.15, name="Grid Connection")
 
@@ -72,8 +88,11 @@ sink11 = pp.create_sink(net, junction=junction12, mdot_kg_per_s=0.0280, name="Si
 sink12 = pp.create_sink(net, junction=junction13, mdot_kg_per_s=0.0603, name="Sink 13")
 sink13 = pp.create_sink(net, junction=junction14, mdot_kg_per_s=0.0690, name="Sink 14")
 
+
+
 #run pipeflow
-pp.pipeflow(net)
+#pp.pipeflow(net)
+pp.pipeflow(net,friction_model="colebrook")
 #pp.pipeflow(net1)
 net.res_junction
 print(net.res_junction)
