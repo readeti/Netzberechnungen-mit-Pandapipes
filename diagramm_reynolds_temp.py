@@ -24,11 +24,16 @@ t_8 = ([191571.57363722,  79820.13115988,  60655.42268959,  48467.93668839,
         25678.3506511 ,  32905.87883777,  79158.11353727,  58634.20588469,
         24477.94276219,  39076.97649084,  21055.22984453])
 
+t_0 = ([196041.08525172,  81678.76017948,  62066.92437464,  49595.09498574,
+        36240.9416567 , 120325.44489459,  62343.52550464,  46691.87881103,
+        26323.98794483,  33667.53852915,  80980.64377429,  59977.89762867,
+        25008.54990635,  39988.67229711,  21586.94650941])
 ax = plt.subplot(111)
 
 rects1 = ax.bar(ind-0.2, t_20, width=0.2, color='b', align='center')
 rects2 = ax.bar(ind, t_15, width=0.2, color='g', align='center')
 rects3 = ax.bar(ind+0.2, t_8, width=0.2, color='r', align='center')
+rects4 = ax.bar(ind+0.4, t_0, width=0.2, color='k', align='center')
 labels = ('K_1-2', 'K_2-3', 'K_3-4', 'K_4-5', 'K_5-6', 'K_2-10', 'K_10-9', 'K_9-8', 'K_8-7', 'K_5-7', 'K_10-11', 'K_11-12', 'K_12-13', 'K_12-14', 'K_7-13')
 
 
@@ -40,6 +45,6 @@ plt.xlabel('Pipes')
 plt.ylabel('Reynoldszahl')
 
 
-plt.legend( (rects1[0], rects2[0], rects3[0]), ('20 Grad C', '15 Grad C', '8 Grad C'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+plt.legend( (rects1[0], rects2[0], rects3[0], rects4[0]), ('20 Grad C', '15 Grad C', '8 Grad C', '0 Grad C'), bbox_to_anchor=(1.5, 1), loc='upper right' )
 
 plt.show()
