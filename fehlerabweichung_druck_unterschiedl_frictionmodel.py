@@ -16,13 +16,18 @@ n = ([0.03      , 0.02921187, 0.02846024, 0.02767175, 0.02699407,
        0.02590494, 0.02638857, 0.02680701, 0.02732855, 0.02814549,
        0.02657226, 0.02601814, 0.02548595, 0.0251874 ])
 
-#cerbe
-m = [0.030000, 0.02935, 0.0287, 0.02801, 0.02741, 0.02648, 0.0269, 0.02726, 0.02771, 0.02843, 0.02707, 0.02658, 0.02611, 0.02585]
+#fehlerabweichung
+f = ([ 0.000e+00, -9.200e-06, -2.255e-05, -3.987e-05, -5.740e-05,
+       -6.562e-05, -6.161e-05, -5.684e-05, -4.720e-05, -2.838e-05,
+       -5.607e-05, -6.836e-05, -7.126e-05, -8.397e-05])
+
 ax = plt.subplot(111)
 
 rects1 = ax.bar(ind-0.2, c, width=0.2, color='b', align='center')
 rects2 = ax.bar(ind, n, width=0.2, color='g', align='center')
-rects3 = ax.bar(ind+0.2, m, width=0.2, color='r', align='center')
+#wird nichts gezeigt, weil e-06, e-05 
+rects3 = ax.bar(ind+0.2, f, width=0.2, color='r', align='center')
+
 labels = ('K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9', 'K10', 'K11', 'K12', 'K13', 'K14')
 
 plt.xticks(np.arange(15), labels, rotation=45)
@@ -31,8 +36,8 @@ plt.autoscale(tight=True)
 
 plt.xlabel('Knoten')
 plt.ylabel('Druck/bar')
+#plt.tilte('Druckwerte')
 
-
-plt.legend( (rects1[0], rects2[0], rects3[0]), ('Colebrook', 'Nikuradse', 'Cerbe'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+plt.legend( (rects1[0], rects2[0], rects3[0]), ('Colebrook', 'Nikuradse', 'Fehlerabweichung'), bbox_to_anchor=(1.5, 1), loc='upper right' )
 
 plt.show()
