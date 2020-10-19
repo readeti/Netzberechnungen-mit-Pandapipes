@@ -52,21 +52,21 @@ ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.03, t_k=273.15, n
 #ext_grid = pp.create_ext_grid(net, junction=junction8, p_bar=100, t_k=273.15, name="Grid Connection")
 
 # create pipes
-pipe1 = pp.create_pipe_from_parameters(net, from_junction=junction1, to_junction=junction2, length_km=0.026, diameter_m=0.30, k_mm=0.01, name="Pipe 1")
-pipe2 = pp.create_pipe_from_parameters(net, from_junction=junction2, to_junction=junction3, length_km=0.080, diameter_m=0.25, k_mm=0.01, name="Pipe 2")
-pipe3 = pp.create_pipe_from_parameters(net, from_junction=junction3, to_junction=junction4, length_km=0.144, diameter_m=0.25, k_mm=0.01, name="Pipe 3")
-pipe4 = pp.create_pipe_from_parameters(net, from_junction=junction4, to_junction=junction5, length_km=0.192, diameter_m=0.25, k_mm=0.01, name="Pipe 4")
-pipe5 = pp.create_pipe_from_parameters(net, from_junction=junction5, to_junction=junction6, length_km=0.106, diameter_m=0.15, k_mm=0.01, name="Pipe 5")
-pipe6 = pp.create_pipe_from_parameters(net, from_junction=junction2, to_junction=junction10, length_km=0.096, diameter_m=0.30, k_mm=0.01, name="Pipe 6")
-pipe7 = pp.create_pipe_from_parameters(net, from_junction=junction10, to_junction=junction9, length_km=0.148, diameter_m=0.25, k_mm=0.01, name="Pipe 7")
-pipe8 = pp.create_pipe_from_parameters(net, from_junction=junction9, to_junction=junction8, length_km=0.080, diameter_m=0.20, k_mm=0.01, name="Pipe 8")
-pipe9 = pp.create_pipe_from_parameters(net, from_junction=junction8, to_junction=junction7, length_km=0.076, diameter_m=0.15, k_mm=0.01, name="Pipe 9")
-pipe10 = pp.create_pipe_from_parameters(net, from_junction=junction5, to_junction=junction7, length_km=0.068, diameter_m=0.15, k_mm=0.01, name="Pipe 10")
-pipe11 = pp.create_pipe_from_parameters(net, from_junction=junction10, to_junction=junction11, length_km=0.17, diameter_m=0.25, k_mm=0.01, name="Pipe 11")
-pipe12 = pp.create_pipe_from_parameters(net, from_junction=junction11, to_junction=junction12, length_km=0.108, diameter_m=0.25, k_mm=0.01, name="Pipe 12")
-pipe13 = pp.create_pipe_from_parameters(net, from_junction=junction12, to_junction=junction13, length_km=0.106, diameter_m=0.15, k_mm=0.01, name="Pipe 13")
-pipe14 = pp.create_pipe_from_parameters(net, from_junction=junction12, to_junction=junction14, length_km=0.172, diameter_m=0.2, k_mm=0.01, name="Pipe 14")
-pipe15 = pp.create_pipe_from_parameters(net, from_junction=junction7, to_junction=junction13, length_km=0.240, diameter_m=0.15, k_mm=0.01, name="Pipe 15")
+pipe1 = pp.create_pipe_from_parameters(net, from_junction=junction1, to_junction=junction2, length_km=0.026, diameter_m=0.30, k_mm=0.02, name="Pipe 1")
+pipe2 = pp.create_pipe_from_parameters(net, from_junction=junction2, to_junction=junction3, length_km=0.080, diameter_m=0.25, k_mm=0.02, name="Pipe 2")
+pipe3 = pp.create_pipe_from_parameters(net, from_junction=junction3, to_junction=junction4, length_km=0.144, diameter_m=0.25, k_mm=0.02, name="Pipe 3")
+pipe4 = pp.create_pipe_from_parameters(net, from_junction=junction4, to_junction=junction5, length_km=0.192, diameter_m=0.25, k_mm=0.02, name="Pipe 4")
+pipe5 = pp.create_pipe_from_parameters(net, from_junction=junction5, to_junction=junction6, length_km=0.106, diameter_m=0.15, k_mm=0.02, name="Pipe 5")
+pipe6 = pp.create_pipe_from_parameters(net, from_junction=junction2, to_junction=junction10, length_km=0.096, diameter_m=0.30, k_mm=0.02, name="Pipe 6")
+pipe7 = pp.create_pipe_from_parameters(net, from_junction=junction10, to_junction=junction9, length_km=0.148, diameter_m=0.25, k_mm=0.02, name="Pipe 7")
+pipe8 = pp.create_pipe_from_parameters(net, from_junction=junction9, to_junction=junction8, length_km=0.080, diameter_m=0.20, k_mm=0.02, name="Pipe 8")
+pipe9 = pp.create_pipe_from_parameters(net, from_junction=junction8, to_junction=junction7, length_km=0.076, diameter_m=0.15, k_mm=0.02, name="Pipe 9")
+pipe10 = pp.create_pipe_from_parameters(net, from_junction=junction5, to_junction=junction7, length_km=0.068, diameter_m=0.15, k_mm=0.02, name="Pipe 10")
+pipe11 = pp.create_pipe_from_parameters(net, from_junction=junction10, to_junction=junction11, length_km=0.17, diameter_m=0.25, k_mm=0.02, name="Pipe 11")
+pipe12 = pp.create_pipe_from_parameters(net, from_junction=junction11, to_junction=junction12, length_km=0.108, diameter_m=0.25, k_mm=0.02, name="Pipe 12")
+pipe13 = pp.create_pipe_from_parameters(net, from_junction=junction12, to_junction=junction13, length_km=0.106, diameter_m=0.15, k_mm=0.02, name="Pipe 13")
+pipe14 = pp.create_pipe_from_parameters(net, from_junction=junction12, to_junction=junction14, length_km=0.172, diameter_m=0.2, k_mm=0.02, name="Pipe 14")
+pipe15 = pp.create_pipe_from_parameters(net, from_junction=junction7, to_junction=junction13, length_km=0.240, diameter_m=0.15, k_mm=0.02, name="Pipe 15")
 
 
 #source = pp.create_source(net, junction=junction1, mdot_kg_per_s=0.4798, name="source1")
@@ -90,8 +90,8 @@ sink13 = pp.create_sink(net, junction=junction14, mdot_kg_per_s=0.0690, name="Si
 
 
 #run pipeflow
-pp.pipeflow(net)
-#pp.pipeflow(net,friction_model="colebrook")
+#pp.pipeflow(net)
+pp.pipeflow(net,friction_model="colebrook")
 #pp.pipeflow(net1)
 net.res_junction
 print(net.res_junction)
