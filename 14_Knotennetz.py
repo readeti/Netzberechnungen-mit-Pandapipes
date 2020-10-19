@@ -28,7 +28,7 @@ net = pp.create_empty_network(fluid="lgas")
 #pp.init_options(net, "lambda")
 #pp.set_user_pf_options(net, reset=False)
 
-pp.FluidPropertyConstant
+#pp.FluidPropertyConstant
 
 
 # fill it with elements
