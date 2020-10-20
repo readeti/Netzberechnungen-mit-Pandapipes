@@ -32,6 +32,7 @@ rects2 = ax.bar(ind, l, width=0.2, color='g', align='center')
 rects3 = ax.bar(ind+0.2, m, width=0.2, color='r', align='center')
 
 
-
-ax.legend( (rects1[0], rects2[0], rects3[0]), ('vdot_norm_m^3_per_h', 'Volumenstrom(Cerbe)', 'mdot_from_m^3_per_h') )
+plt.xlabel('Leitungen')
+plt.ylabel('Druck/bar')
+ax.legend( (rects1[0], rects2[0], rects3[0]), ('vdot_norm_m^3_per_h', 'Volumenstrom(Cerbe)', 'mdot_from_m^3_per_h'), bbox_to_anchor=(1.5, 1), loc='upper right' )
 plt.show()

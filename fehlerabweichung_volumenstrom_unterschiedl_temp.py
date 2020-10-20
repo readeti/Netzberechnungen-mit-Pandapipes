@@ -48,5 +48,7 @@ rects1 = ax.bar(ind-0.2, t_20, width=0.2, color='b', align='center')
 rects2 = ax.bar(ind, t_0, width=0.2, color='g', align='center')
 rects3 = ax.bar(ind+0.2, f, width=0.2, color='m', align='center')
 
-ax.legend( (rects1[0], rects2[0], rects3[0]), ('t_20', 't_0', 'Fehlerabweichung') )
+plt.xlabel('Leitungen')
+plt.ylabel('Volumenstrom m^3/h')
+ax.legend( (rects1[0], rects2[0], rects3[0]), ('t_20', 't_0', 'Fehlerabweichung'), bbox_to_anchor=(1.5, 1), loc='upper right' )
 plt.show()
