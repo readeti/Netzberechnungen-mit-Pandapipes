@@ -1,34 +1,10 @@
 import pandas as pd
 import pandapipes as pp
-#import colebrook
-#def create_constant_fluid(name="Methane",fluid_type="gas", **kwargs):
- #   create_constant_fluid(**kwargs)
-  #  create_constant_fluid(property_name ="density", value = 0.675, overwrite=True, warn_on_duplicates=True)
+
 
 # create an empty network
-net = pp.create_empty_network(fluid="lgas")
+net = pp.create_empty_network(fluid ="lgas")
 
-     
-
-#class Fluid(name = "methane",fluid_type = "gas", **kwargs): ??
-#fluid.add_property("methane_density", pp.FluidPropertyConstant(0.657), overwrite=True, warn_on_duplicates=True) ??
-
-
-
-
-#prop1 = pp.create_constant_property(net, "density", 1000, overwrite = True)
-#prop2 = pp.create_linear_property(net, "compressibility", -0.01, 1, overwrite = True)
-
-#already existing fluid
-#pp.create_fluid_from_lib(net, name="water")
-
-#fluid from parameters (not working)
-#pp.create_constant_fluid(name="Methane", fluid_type="gas")
-#pp.create_constant_property(net, "density", 0.657 , overwrite=True, warn_on_duplicates=True)
-#pp.init_options(net, "lambda")
-#pp.set_user_pf_options(net, reset=False)
-
-#pp.FluidPropertyConstant
 
 
 # fill it with elements
@@ -48,8 +24,6 @@ junction13 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junc
 junction14 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 14", geodata=(4, 6))
 
 ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.03, t_k=273.15, name="Grid Connection")
-#ein zweites knoten mit dem selben gas einspeisen.
-#ext_grid = pp.create_ext_grid(net, junction=junction8, p_bar=100, t_k=273.15, name="Grid Connection")
 
 # create pipes
 pipe1 = pp.create_pipe_from_parameters(net, from_junction=junction1, to_junction=junction2, length_km=0.026, diameter_m=0.30, k_mm=1, name="Pipe 1")
@@ -67,9 +41,6 @@ pipe12 = pp.create_pipe_from_parameters(net, from_junction=junction11, to_juncti
 pipe13 = pp.create_pipe_from_parameters(net, from_junction=junction12, to_junction=junction13, length_km=0.106, diameter_m=0.15, k_mm=1, name="Pipe 13")
 pipe14 = pp.create_pipe_from_parameters(net, from_junction=junction12, to_junction=junction14, length_km=0.172, diameter_m=0.2, k_mm=1, name="Pipe 14")
 pipe15 = pp.create_pipe_from_parameters(net, from_junction=junction7, to_junction=junction13, length_km=0.240, diameter_m=0.15, k_mm=1, name="Pipe 15")
-
-
-#source = pp.create_source(net, junction=junction1, mdot_kg_per_s=0.4798, name="source1")
 
 
 #sink for constant consumption. The sign of the mass flow is positive.
@@ -92,7 +63,6 @@ sink13 = pp.create_sink(net, junction=junction14, mdot_kg_per_s=0.0690, name="Si
 #run pipeflow
 #pp.pipeflow(net)
 pp.pipeflow(net,friction_model="colebrook")
-#pp.pipeflow(net1)
 net.res_junction
 print(net.res_junction)
 
@@ -104,7 +74,7 @@ print(net.res_pipe)
 #net.res_sink
 #print(net.res_sink)
 
-
+    
 # show full table
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
