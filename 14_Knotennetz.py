@@ -6,6 +6,7 @@ import pandapipes as pp
 net = pp.create_empty_network(fluid ="lgas")
 
 
+print(net.fluid.get_density(temperature = 273.15))
 
 # fill it with elements
 junction1 = pp.create_junction(net, pn_bar=1.013, tfluid_k=273.15, name="Junction 1", geodata=(0, 0))
