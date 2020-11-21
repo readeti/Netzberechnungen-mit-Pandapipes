@@ -27,12 +27,15 @@ d = b * 3600
 
 
 #Values of volume flow from Cerbe
-l = [2206, 765.7, 581.7, 464.7, 204.0, 1354.3, 584.3, 350.2, 148.2, 188.7, 760.1, 563.1, 141.1, 300, 120.9] 
+l = [2206, 765.7, 581.7, 464.7, 204.0, 1354.3, 584.3, 350.2, 148.2, 188.7, 
+     760.1, 563.1, 141.1, 300, 120.9] 
 
 # plotting
 ax = plt.subplot(111)
 
-labels = ('K_1-2', 'K_2-3', 'K_3-4', 'K_4-5', 'K_5-6', 'K_2-10', 'K_10-9', 'K_9-8', 'K_8-7', 'K_5-7', 'K_10-11', 'K_11-12', 'K_12-13', 'K_12-14', 'K_7-13')
+labels = ('K_1-2', 'K_2-3', 'K_3-4', 'K_4-5', 'K_5-6', 'K_2-10', 'K_10-9', 
+          'K_9-8', 'K_8-7', 'K_5-7', 'K_10-11', 'K_11-12', 'K_12-13', 
+          'K_12-14', 'K_7-13')
 plt.xticks(np.arange(15), labels, rotation=45)
 plt.autoscale(tight=True)
 
@@ -42,5 +45,6 @@ rects3 = ax.bar(ind+0.2, l, width=0.2, color='r', align='center')
 plt.xlabel('Pipes')
 plt.ylabel('Volumenstrom m^3/h')
 
-ax.legend( (rects1[0], rects2[0], rects3[0]), ('Colebrook', 'Default', 'Cerbe'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+ax.legend( (rects1[0], rects2[0], rects3[0]), ('Colebrook', 'Default', 'Cerbe'), 
+          bbox_to_anchor=(1.5, 1), loc='upper right' )
 plt.show()
