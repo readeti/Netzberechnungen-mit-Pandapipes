@@ -32,7 +32,9 @@ print (f)
 # plotting
 ax = plt.subplot(111)
 
-labels = ('K_1-2', 'K_2-3', 'K_3-4', 'K_4-5', 'K_5-6', 'K_2-10', 'K_10-9', 'K_9-8', 'K_8-7', 'K_5-7', 'K_10-11', 'K_11-12', 'K_12-13', 'K_12-14', 'K_7-13')
+labels = ('K_1-2', 'K_2-3', 'K_3-4', 'K_4-5', 'K_5-6', 'K_2-10', 'K_10-9', 
+          'K_9-8', 'K_8-7', 'K_5-7', 'K_10-11', 'K_11-12', 'K_12-13', 
+          'K_12-14', 'K_7-13')
 plt.xticks(np.arange(15), labels, rotation=45)
 plt.autoscale(tight=True)
 
@@ -42,7 +44,9 @@ rects3 = ax.bar(ind+0.2, f, width=0.2, color='m', align='center')
 
 plt.xlabel('Leitungen')
 plt.ylabel('Volumenstrom m^3/h')
-ax.legend( (rects1[0], rects2[0], rects3[0]), ('k = 1mm', 'k = 0.01mm ', 'Fehlerabweichung'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+ax.legend( (rects1[0], rects2[0], rects3[0]), 
+          ('k = 1mm', 'k = 0.01mm ', 'Fehlerabweichung'), 
+          bbox_to_anchor=(1.5, 1), loc='upper right' )
 plt.show()
 
 
