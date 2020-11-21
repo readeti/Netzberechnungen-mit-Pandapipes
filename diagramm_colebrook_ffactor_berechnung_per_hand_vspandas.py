@@ -20,6 +20,9 @@ ff_colebrook = ([0.02756982, 0.02968767, 0.03006514, 0.0304468 , 0.03517944,
        0.02969815, 0.03011881, 0.03599416, 0.03252755, 0.03639354])
 
 
+# calculate difference
+d =  [a - b for a,b in zip(ff_darcy, ff_colebrook)]
+
 # plotting
 ax = plt.subplot(111)
 
@@ -30,10 +33,13 @@ plt.xticks(np.arange(15), labels, rotation=45)
 plt.autoscale(tight=True)
 
 rects1 = ax.bar(ind, ff_darcy, width=0.2, color='g', align='center')
-rects2 = ax.bar(ind+0.2, ff_colebrook, width=0.2, color='r', align='center')
+rects2 = ax.bar(ind-0.2, ff_colebrook, width=0.2, color='r', align='center')
+rects3 = ax.bar(ind+0.2, d, width=0.2, color='b', align='center')
 plt.xlabel('Pipes')
 plt.ylabel('Friction factor')
 
 # show legend
-ax.legend( (rects1[0], rects2[0]), ('Darcy Equation', 'Colebrook'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+ax.legend( (rects1[0], rects2[0], rects3[0]), 
+          ('Darcy Equation', 'Colebrook', 'Fehlerabweichung'), 
+          bbox_to_anchor=(1.5, 1), loc='upper right' )
 plt.show()
