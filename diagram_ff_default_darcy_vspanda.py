@@ -36,6 +36,8 @@ rects2 = ax.bar(ind+0.2, ff_panda, width=0.2, color='r', align='center')
 plt.xlabel('Pipes')
 plt.ylabel('Friction factor')
 
-ax.legend( (rects1[0], rects2[0]), ('Berechnung per hand', 'Berechnung von pandas'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+ax.legend( (rects1[0], rects2[0]), 
+          ('Berechnung per hand', 'Berechnung von pandas'), 
+          bbox_to_anchor=(1.5, 1), loc='upper right' )
 
 plt.show()
