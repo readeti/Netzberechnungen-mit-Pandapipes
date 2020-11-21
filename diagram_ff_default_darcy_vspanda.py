@@ -20,6 +20,10 @@ ff_panda = ([0.02725176, 0.02916463, 0.02941218, 0.02967142, 0.03491798,
        0.02745721, 0.02940814, 0.03170111, 0.03558734, 0.03505237,
        0.02917125, 0.02944784, 0.03570773, 0.0319299 , 0.03612139])
 
+# calculate difference
+d =  [a - b for a,b in zip(ff_darcy, ff_panda)]
+
+
 # plotting
 ax = plt.subplot(111)
 
@@ -31,13 +35,14 @@ plt.xticks(np.arange(15), labels, rotation=45)
 plt.autoscale(tight=True)
 
 rects1 = ax.bar(ind, ff_darcy, width=0.2, color='g', align='center')
-rects2 = ax.bar(ind+0.2, ff_panda, width=0.2, color='r', align='center')
+rects2 = ax.bar(ind-0.2, ff_panda, width=0.2, color='r', align='center')
+rects3 = ax.bar(ind+0.2, d, width=0.2, color='b', align='center')
 
 plt.xlabel('Pipes')
 plt.ylabel('Friction factor')
 
-ax.legend( (rects1[0], rects2[0]), 
-          ('Berechnung per hand', 'Berechnung von pandas'), 
+ax.legend( (rects1[0], rects2[0], rects3[0]), 
+          ('Darcy Equation', 'Berechnung von pandas', 'Fehlerabweichung'), 
           bbox_to_anchor=(1.5, 1), loc='upper right' )
 
 plt.show()
