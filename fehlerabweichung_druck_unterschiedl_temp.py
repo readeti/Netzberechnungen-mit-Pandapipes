@@ -28,7 +28,8 @@ rects1 = ax.bar(ind-0.2, t_20, width=0.2, color='b', align='center')
 rects2 = ax.bar(ind, t_0, width=0.2, color='g', align='center')
 rects3 = ax.bar(ind+0.2, f, width=0.2, color='r', align='center')
 
-labels = ('K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9', 'K10', 'K11', 'K12', 'K13', 'K14')
+labels = ('K1', 'K2', 'K3', 'K4', 'K5', 'K6', 'K7', 'K8', 'K9', 'K10', 
+          'K11', 'K12', 'K13', 'K14')
 
 plt.xticks(np.arange(15), labels, rotation=45)
 plt.autoscale(tight=True)
@@ -37,6 +38,8 @@ plt.autoscale(tight=True)
 plt.xlabel('Knoten')
 plt.ylabel('Druck/bar')
 
-plt.legend( (rects1[0], rects2[0], rects3[0]), ('t_20', 't_0', 'Fehlerabweichung'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+plt.legend( (rects1[0], rects2[0], rects3[0]), 
+           ('t_20', 't_0', 'Fehlerabweichung'), 
+           bbox_to_anchor=(1.5, 1), loc='upper right' )
 
 plt.show()
