@@ -5,19 +5,22 @@ import matplotlib.pyplot as plt
 N = 14
 ind = np.arange(N)
 
+# Use "net.res_junction["p_bar"].values"
+# values of pressure on each junction, k = 1mm, colebrook, T = 273.15K 
+c = ([0.03      , 0.02923084, 0.02846588, 0.02766009, 0.0269649 ,
+      0.02586758, 0.0263552 , 0.0267784 , 0.02730957, 0.02814531,
+      0.02654443, 0.02597804, 0.02544297, 0.02513171])
 
-#druck, k = 1mm, colebrook
-c = ([0.03      , 0.02920267, 0.02843769, 0.02763188, 0.02693667,
-       0.02583932, 0.02632696, 0.02675017, 0.02728135, 0.02811711,
-       0.02651619, 0.02594978, 0.02541469, 0.02510343])
+# Use "net.res_junction["p_bar"].values"
+# values of pressure on each junction, k = 1mm, default, T = 273.15K 
+n = ([0.03      , 0.02923972, 0.0284881 , 0.02769964, 0.02702198,
+      0.02593287, 0.02641649, 0.02683492, 0.02735644, 0.02817336,
+      0.02660018, 0.02604607, 0.02551389, 0.02521535])
 
-#druck, k = 1mm, nikuradse 
-n = ([0.03      , 0.02921187, 0.02846024, 0.02767175, 0.02699407,
-       0.02590494, 0.02638857, 0.02680701, 0.02732855, 0.02814549,
-       0.02657226, 0.02601814, 0.02548595, 0.0251874 ])
-
-#cerbe
+# values of pressure on each junction from Cerbe
 m = [0.030000, 0.02935, 0.0287, 0.02801, 0.02741, 0.02648, 0.0269, 0.02726, 0.02771, 0.02843, 0.02707, 0.02658, 0.02611, 0.02585]
+
+# plotting
 ax = plt.subplot(111)
 
 rects1 = ax.bar(ind-0.2, c, width=0.2, color='b', align='center')
@@ -33,6 +36,6 @@ plt.xlabel('Knoten')
 plt.ylabel('Druck/bar')
 
 
-plt.legend( (rects1[0], rects2[0], rects3[0]), ('Colebrook', 'Nikuradse', 'Cerbe'), bbox_to_anchor=(1.5, 1), loc='upper right' )
+plt.legend( (rects1[0], rects2[0], rects3[0]), ('Colebrook', 'Default', 'Cerbe'), bbox_to_anchor=(1.5, 1), loc='upper right' )
 
 plt.show()

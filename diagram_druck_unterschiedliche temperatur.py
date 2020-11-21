@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 N = 15
 ind = np.arange(N)
 
-#values of p_from_bar
+# values of p_from_bar from 14_Knotennetz.py for 4 different temperatures
+# 293.15K, 288.15K, 281,15K, 273.15K
 
 t_20 = ([0.03      , 0.0291232 , 0.02825569, 0.02734515, 0.02656214,
        0.0291232 , 0.02789261, 0.02694908, 0.02634643, 0.02656214,

@@ -4,22 +4,21 @@ import matplotlib.pyplot as plt
 
 N = 14
 ind = np.arange(N)
-#Druckwerte an den jeweiligen knoten
-#p=1.05bar /1.013bar   k=1mm
+# Values of pressure on each junction. Use "net.res_junction["p_bar"].values"
+# same values for p = 1.05bar and p = 1.013bar, k=1mm, T = 273K
 k = ([0.03      , 0.02923972, 0.0284881 , 0.02769964, 0.02702198,
        0.02593287, 0.02641649, 0.02683492, 0.02735644, 0.02817336,
        0.02660018, 0.02604607, 0.02551389, 0.02521535])
 
-#p=1.013bar        k=0.01mm
+#p=1.013bar, k=0.01mm
 l = ([0.03      , 0.02971716, 0.02943635, 0.02913784, 0.0288778 ,
        0.0284774 , 0.02865446, 0.02881187, 0.02900669, 0.02931546,
        0.02872593, 0.02851496, 0.02830922, 0.02820003])
 
-#fehlerabweichung
-f = ([0.        , 0.00047744, 0.00094825, 0.0014382 , 0.00185582,
-       0.00254453, 0.00223797, 0.00197695, 0.00165025, 0.0011421 ,
-       0.00212575, 0.00246889, 0.00279533, 0.00298468])
+# error deviation
+f =  [a - b for a,b in zip(k,l)]
 
+# plotting
 ax = plt.subplot(111)
 
 rects1 = ax.bar(ind-0.2, k, width=0.2, color='b', align='center')

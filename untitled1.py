@@ -1,16 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import pandapipes as pp
 import colebrook
 
 net = pp.create_empty_network(fluid="lgas")
-#class Fluid(name = "methane",fluid_type = "gas"):
- #   fluid = Fluid(name = "methane",fluid_type = "gas")
-  #  Fluid.add_property('methane_density', pp.FluidPropertyConstant(0.657), overwrite=True, warn_on_duplicates=True)
 
-
-
-  
 
            
 

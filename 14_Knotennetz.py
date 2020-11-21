@@ -5,10 +5,10 @@ import pandapipes as pp
 # create an empty network
 net = pp.create_empty_network(fluid ="lgas")
 
-
+# give the density of lgas from the library
 print(net.fluid.get_density(temperature = 273.15))
 
-# fill it with elements
+# create network elements, such as junctions, external grid, pipes and sinks
 junction1 = pp.create_junction(net, pn_bar=1.013, tfluid_k=273.15, name="Junction 1", geodata=(0, 0))
 junction2 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 2", geodata=(2, 0))
 junction3 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 3", geodata=(4, 0))
@@ -24,9 +24,10 @@ junction12 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junc
 junction13 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 13", geodata=(8, 4))
 junction14 = pp.create_junction(net, pn_bar=1.013, tfluid_k = 273.15, name="Junction 14", geodata=(4, 6))
 
+
 ext_grid = pp.create_ext_grid(net, junction=junction1, p_bar=0.03, t_k=273.15, name="Grid Connection")
 
-# create pipes
+
 pipe1 = pp.create_pipe_from_parameters(net, from_junction=junction1, to_junction=junction2, length_km=0.026, diameter_m=0.30, k_mm=1, name="Pipe 1")
 pipe2 = pp.create_pipe_from_parameters(net, from_junction=junction2, to_junction=junction3, length_km=0.080, diameter_m=0.25, k_mm=1, name="Pipe 2")
 pipe3 = pp.create_pipe_from_parameters(net, from_junction=junction3, to_junction=junction4, length_km=0.144, diameter_m=0.25, k_mm=1, name="Pipe 3")
@@ -44,7 +45,7 @@ pipe14 = pp.create_pipe_from_parameters(net, from_junction=junction12, to_juncti
 pipe15 = pp.create_pipe_from_parameters(net, from_junction=junction7, to_junction=junction13, length_km=0.240, diameter_m=0.15, k_mm=1, name="Pipe 15")
 
 
-#sink for constant consumption. The sign of the mass flow is positive.
+# use sink for constant consumption. The sign of the mass flow is positive.
 sink1 = pp.create_sink(net, junction=junction2, mdot_kg_per_s=0.0198, name="Sink 2")
 sink2 = pp.create_sink(net, junction=junction3, mdot_kg_per_s=0.0423, name="Sink 3")
 sink3 = pp.create_sink(net, junction=junction4, mdot_kg_per_s=0.0269, name="Sink 4")
@@ -61,24 +62,20 @@ sink13 = pp.create_sink(net, junction=junction14, mdot_kg_per_s=0.0690, name="Si
 
 
 
-#run pipeflow
 #pp.pipeflow(net)
 pp.pipeflow(net,friction_model="colebrook")
-net.res_junction
+
 print(net.res_junction)
-
-#show junction table
-print(net.junction)  
-#print(net.source)
 print(net.res_pipe)
-#print(net.sink)
-#net.res_sink
-#print(net.res_sink)
+print(net.res_sink)
 
-    
+# show junction table
+#print(net.junction)  
+
+
 # show full table
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
-#plotting
+# plotting
 import pandapipes.plotting as plot
 plot.simple_plot(net, plot_grid=True, plot_sinks=True, plot_sources=True, grid_size=2.0, sink_size=1.0, source_size=1.0)
