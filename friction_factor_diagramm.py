@@ -42,7 +42,10 @@ red_dot, = plt.plot(r1,sj1,'bo', color = 'r')
 blue_dot, = plt.plot(r,bnt,'bo')
 magenta_dot, = plt.plot(r1,bnt1,'bo', color = 'm')
 green_dot, = plt.plot(r,sj,'bo', color = 'g')
-plt.legend( (red_dot, magenta_dot, green_dot, blue_dot), ('colebrook,k = 1mm, sj', 'colebrook, k = 1mm, bnt', 'colebrook, k = 0.007mm, sj' , 'colebrook, k = 0.007mm, bnt') , loc = 'upper right')
+plt.legend( (red_dot, magenta_dot, green_dot, blue_dot), 
+           ('colebrook,k = 1mm, sj', 'colebrook, k = 1mm, bnt', 
+            'colebrook, k = 0.007mm, sj' , 'colebrook, k = 0.007mm, bnt') , 
+           loc = 'upper right')
 
 plt.xlabel('Reynoldsnumber')
 plt.ylabel('friction factor')
