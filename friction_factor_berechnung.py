@@ -2,8 +2,8 @@ import pandapipes as pp
 import colebrook
 
 net = pp.create_empty_network(fluid="lgas")
-           
-"""
+
+
 
 # Colebrook, k = 1mm,  T = 293.15K
 # Reynold number. Use "net.res_pipe["reynolds"].values in 14_Knotennetz.py
@@ -28,8 +28,6 @@ for a, b in zip(r,relative_roughness):
     friction_factor = colebrook.sjFriction(a , b)
     print(a, " : ", friction_factor)
     
-
-
 
     
 """
@@ -59,6 +57,6 @@ for a, b in zip(r,relative_roughness):
     
    
 
-
+"""
 
 
