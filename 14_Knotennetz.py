@@ -1,5 +1,6 @@
 import pandas as pd
 import pandapipes as pp
+import pandapipes.plotting as plot
 
 
 # create an empty network
@@ -77,5 +78,4 @@ print(net.res_sink)
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 # plotting
-import pandapipes.plotting as plot
 plot.simple_plot(net, plot_grid=True, plot_sinks=True, plot_sources=True, grid_size=2.0, sink_size=1.0, source_size=1.0)
