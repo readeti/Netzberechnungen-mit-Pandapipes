@@ -42,7 +42,7 @@ plt.xlabel('Pipes')
 plt.ylabel('Friction factor')
 
 ax.legend( (rects1[0], rects2[0], rects3[0]), 
-          ('Darcy Equation', 'Berechnung von pandas', 'Fehlerabweichung'), 
+          ('Darcy Equation', 'Default', 'Fehlerabweichung'), 
           bbox_to_anchor=(1.5, 1), loc='upper right' )
 
 plt.show()
