@@ -44,8 +44,8 @@ labels = ('K_1-2', 'K_2-3', 'K_3-4', 'K_4-5', 'K_5-6', 'K_2-10', 'K_10-9',
 plt.xticks(np.arange(15), labels, rotation=45)
 plt.autoscale(tight=True)
 
-rects1 = ax.bar(ind, ff_darcy, width=0.2, color='g', align='center')
-rects2 = ax.bar(ind-0.2, ff_colebrook, width=0.2, color='r', align='center')
+rects1 = ax.bar(ind-0.2, ff_darcy, width=0.2, color='g', align='center')
+rects2 = ax.bar(ind, ff_colebrook, width=0.2, color='r', align='center')
 rects3 = ax.bar(ind+0.2, ff_default, width=0.2, color='y', align='center')
 rects4 = ax.bar(ind+0.4, f_1, width=0.2, color='b', align='center')
 rects5 = ax.bar(ind+0.6, f_2, width=0.2, color='c', align='center')
